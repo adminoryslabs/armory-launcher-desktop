@@ -1,0 +1,16 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Permisos que necesita el frontend del launcher: portapapeles y control de ventana (hide/show/focus para el toggle del hotkey).",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:window:allow-hide",
+    "core:window:allow-show",
+    "core:window:allow-center",
+    "core:window:allow-set-focus",
+    "core:window:allow-is-visible",
+    "core:event:allow-listen",
+    "clipboard-manager:allow-write-text"
+  ]
+}
