@@ -56,6 +56,27 @@ cualquier momento.
 
 ## Cómo generar el instalable
 
+**Automático (recomendado)**: pushear un tag `vX.Y.Z` dispara
+`.github/workflows/release.yml`, que compila y publica un GitHub Release con los instaladores
+adjuntos.
+
+```bash
+# 1. Bump de version en los 3 lugares donde Tauri la necesita consistente:
+#    package.json, src-tauri/tauri.conf.json, src-tauri/Cargo.toml
+# 2. Commit y push a main
+git push origin main
+
+# 3. Tag y push del tag — esto dispara el workflow
+git tag v0.2.0
+git push origin v0.2.0
+```
+
+El release en `https://github.com/adminoryslabs/armory-launcher-desktop/releases/latest` se
+actualiza solo — es el mismo link que usa el botón de descarga en el sitio web, así que nunca hay
+que actualizar ese link a mano.
+
+**Manual (para probar local antes de taggear)**:
+
 ```bash
 npm run tauri build
 ```

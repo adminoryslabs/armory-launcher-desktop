@@ -1,4 +1,5 @@
 import { getCurrentWindow } from "@tauri-apps/api/window";
+import { getVersion } from "@tauri-apps/api/app";
 import { writeText } from "@tauri-apps/plugin-clipboard-manager";
 import { listen } from "@tauri-apps/api/event";
 
@@ -17,6 +18,7 @@ const tabSkills = document.getElementById("tab-skills");
 const tabPrompts = document.getElementById("tab-prompts");
 const countSkills = document.getElementById("count-skills");
 const countPrompts = document.getElementById("count-prompts");
+const versionLabel = document.getElementById("version-label");
 
 let skills = [];
 let prompts = [];
@@ -214,3 +216,7 @@ listen("launcher-shown", () => {
 setActiveTab("skill");
 searchInput.focus();
 loadCatalog();
+
+getVersion().then((version) => {
+  versionLabel.textContent = `v${version}`;
+});

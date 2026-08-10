@@ -1,0 +1,36 @@
+name: Release
+
+# Se dispara al pushear un tag de version (ej. v0.2.0). El numero de version
+# del tag tiene que coincidir con "version" en src-tauri/tauri.conf.json,
+# package.json y src-tauri/Cargo.toml — bump manual antes de taggear.
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: "Armory Launcher ${{ github.ref_name }}"
+          releaseDraft: false
+          prerelease: false

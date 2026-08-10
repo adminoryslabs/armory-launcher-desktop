@@ -1,6 +1,6 @@
 [package]
 name = "launcher-desktop"
-version = "0.1.0"
+version = "0.2.0"
 description = "Armory Launcher — buscador de skills y prompts con hotkey global"
 authors = ["OrysLabs"]
 edition = "2021"

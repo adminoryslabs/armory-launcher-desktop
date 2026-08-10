@@ -57,6 +57,21 @@ backend que este repo consume.
   que el bundle de Tauri compile sin depender de tener un archivo de diseño real a mano. Son
   funcionales para dev/build pero no son la identidad visual final — reemplazar con
   `npm run tauri icon` cuando exista el arte de marca.
+- **Release automatizado con `tauri-apps/tauri-action`** (`.github/workflows/release.yml`), único
+  paso manual que quedaba en todo el ecosistema (`registry-api` en Render y `registry-web` en
+  Vercel ya redeployan solos en cada push). Se dispara con un tag `vX.Y.Z`, corre en
+  `windows-latest` (es la única plataforma que soportamos), y publica el release con los
+  instaladores adjuntos. El número de versión hay que bumpearlo a mano en 3 archivos antes de
+  taggear (`package.json`, `src-tauri/tauri.conf.json`, `src-tauri/Cargo.toml`) — Tauri no tiene
+  una única fuente de verdad para la versión.
+- **Version visible en la propia ventana** (`getVersion()` de `@tauri-apps/api/app`, mostrado en
+  el footer): sirve como prueba rápida de que una nueva versión instalada es realmente nueva, sin
+  tener que ir a buscar el número en ningún otro lado.
+- **Gotcha real, no hipotético**: el hotkey global (`Ctrl+Shift+Space`) es exclusivo a nivel de
+  sistema operativo — si ya hay una instancia corriendo (instalada o en modo dev) con el hotkey
+  registrado, una segunda instancia falla al arrancar con un panic
+  (`HotKey already registered`). No es un bug de la app, es el comportamiento esperado de
+  `tauri-plugin-global-shortcut`: cerrar la instancia anterior antes de levantar otra.
 
 ## Cómo correrlo
 
