@@ -29,6 +29,11 @@ jobs:
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # El .env local (con la URL real de registry-api) esta en .gitignore y
+          # nunca llega a este runner — sin esto, Vite cae al fallback de
+          # localhost:3000 hardcodeado en main.js, que no sirve para nadie que
+          # instale el release. Declarado explicito, no implicito.
+          VITE_API_BASE_URL: https://armory-registry-api.onrender.com
         with:
           tagName: ${{ github.ref_name }}
           releaseName: "Armory Launcher ${{ github.ref_name }}"
