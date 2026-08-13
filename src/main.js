@@ -33,7 +33,7 @@ function showToast(message) {
 }
 
 function buildInstallCommand(name) {
-  return `npx skills add adminoryslabs/Skills --skill ${name}`;
+  return `npx skills add adminoryslabs/Armory --skill ${name}`;
 }
 
 async function fetchItems(type) {
