@@ -1,7 +1,7 @@
 # launcher-desktop
 
-Cliente de escritorio del ecosistema `multirepo-demo`. Ver
-`D:\DMC_Courses\multirepo-demo\CLAUDE.md` para el contexto completo del ecosistema (los otros
+Cliente de escritorio del ecosistema `Armory`. Ver
+`D:\DMC_Courses\Armory\CLAUDE.md` para el contexto completo del ecosistema (los otros
 repos, el contrato de contenido, la atribución de terceros) y `../registry-api/CLAUDE.md` para el
 backend que este repo consume.
 

@@ -1,11 +1,11 @@
 # launcher-desktop
 
-Aplicación de escritorio nativa (Windows) del ecosistema `multirepo-demo`. Es un launcher tipo
+Aplicación de escritorio nativa (Windows) del ecosistema `Armory`. Es un launcher tipo
 Raycast/Alfred: se activa con un atajo de teclado global, busca skills y prompts del catálogo de
 `adminoryslabs-skills` (servido por `registry-api`) y copia al portapapeles lo necesario para
 usarlos, sin salir del editor o la terminal donde se esté trabajando.
 
-Ver `D:\DMC_Courses\multirepo-demo\CLAUDE.md` para el contexto completo del ecosistema y
+Ver `D:\DMC_Courses\Armory\CLAUDE.md` para el contexto completo del ecosistema y
 `../registry-api/README.md` para el backend que esta aplicación consume.
 
 ## Qué hace
